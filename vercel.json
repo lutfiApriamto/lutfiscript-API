@@ -1,31 +1,18 @@
 {
   "builds": [
     {
-      "src": "*.js",
+      "src": "api/**/*.js",
       "use": "@vercel/node"
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
-  "headers": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
     {
       "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "X-Requested-With, Content-Type, Authorization"
-        }
-      ]
+      "destination": "/index.html"
     }
   ]
 }
-
