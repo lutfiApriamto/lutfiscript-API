@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-dotenv.config();
 import { UserRouter } from './routes/user.js';
 import { ModulesRouter } from './routes/modules.js';
 import { AdminRouter } from './routes/admin.js';
@@ -26,7 +25,7 @@ app.use(cors({
     credentials: true,
     optionsSuccessStatus: 200
 }));
-
+dotenv.config({path : "./config/.env"});
 app.use(express.json());
 app.use(cookieParser());
 
