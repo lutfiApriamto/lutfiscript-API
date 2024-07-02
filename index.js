@@ -11,7 +11,7 @@ import { AdminRouter } from './routes/admin.js';
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ["https://lutfi-script-client.vercel.app/"],
+    origin: "https://lutfi-script-client.vercel.app",
     methods : ["GET", "POST", "PATCH", "DELETE"],
     credentials : true
 }));
