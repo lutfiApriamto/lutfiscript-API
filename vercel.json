@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "index.js",
@@ -9,6 +10,25 @@
     {
       "src": "/(.*)",
       "dest": "/index.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://lutfi-script-client.vercel.app"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-Requested-With, Content-Type, Accept, Authorization"
+        }
+      ]
     }
   ]
 }
