@@ -12,13 +12,16 @@ const app = express();
 // Load environment variables from .env file
 dotenv.config({ path: "./config/.env" });
 
-// Middleware
+// Middleware CORS
 app.use(cors({
     origin: "https://lutfi-script-client.vercel.app",
     methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
+
+// Handle preflight requests
+app.options('*', cors());
 
 app.use(express.json());
 app.use(cookieParser());
