@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-    origin: "https://lutfi-script-client.vercel.app",
+    origin: ["https://lutfi-script-client.vercel.app"],
     methods: ["GET", "POST", "PATCH", "DELETE"],
     credentials: true,
     optionsSuccessStatus: 200
