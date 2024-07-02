@@ -6,6 +6,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/auth/resetpassword/:token*", "destination": "/auth/resetpassword" },
     { "source": "/(.*)", "destination": "/index.js" }
   ]
 }
