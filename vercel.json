@@ -5,9 +5,8 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    { "src": "/resetpassword/:token*", "dest": "/resetpassword" },
-    { "src": "/adminLogin", "dest": "/adminLogin" },
-    { "src": "/(.*)", "dest": "/index.js" }
+  "rewrites": [
+    { "source": "/resetpassword/:token*", "destination": "/resetpassword" },
+    { "source": "/adminLogin", "destination": "/adminLogin" }
   ]
 }
