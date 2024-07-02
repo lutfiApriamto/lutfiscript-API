@@ -11,9 +11,15 @@
       "dest": "/index.js"
     },
     {
-      "rewrites": [
-        { "source": "/(.*)", "destination": "/" }
-      ]
-    }    
+      "handle": "filesystem"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
   ]
 }
