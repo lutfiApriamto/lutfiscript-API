@@ -10,7 +10,11 @@ import { AdminRouter } from './routes/admin.js';
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ["https://lutfi-script-client.vercel.app/"],
+    methods : ["GET", "POST", "PATCH", "DELETE"],
+    credentials : true
+}));
 
 app.use(cookieParser())
 app.use('/admin', AdminRouter )
