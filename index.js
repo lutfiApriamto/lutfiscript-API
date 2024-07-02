@@ -33,11 +33,11 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/admin', AdminRouter);
-app.use('/auth', UserRouter);
-app.use('/auth/:id', UserRouter);
-app.use('/modules', ModulesRouter);
-app.use('/modules/:id', ModulesRouter);
+app.use('/api/admin', AdminRouter);
+app.use('/api/auth', UserRouter);
+app.use('/api/auth/:id', UserRouter);
+app.use('/api/modules', ModulesRouter);
+app.use('/api/modules/:id', ModulesRouter);
 
 // Connect to MongoDB and start the server
 mongoose.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true })
