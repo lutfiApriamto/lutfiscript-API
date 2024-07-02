@@ -1,6 +1,14 @@
 {
-  "rewrites": [
-    { "source": "/resetpassword/:token*", "destination": "/resetpassword" },
-    { "source": "/adminLogin", "destination": "/adminLogin" }
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
   ]
 }
