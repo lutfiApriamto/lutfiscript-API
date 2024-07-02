@@ -6,7 +6,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/auth/forgotpassword", "destination": "https://lutfiscript-api.vercel.app/auth/forgotpassword" },
     { "source": "/(.*)", "destination": "/index.js" }
   ]
 }
