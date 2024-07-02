@@ -10,9 +10,13 @@ import { AdminRouter } from './routes/admin.js';
 
 const app = express();
 
-// Log request origin
+// Log requests and CORS headers
 app.use((req, res, next) => {
-    console.log('Request origin:', req.headers.origin);
+    console.log(`Request Method: ${req.method}, Request URL: ${req.url}`);
+    res.setHeader("Access-Control-Allow-Origin", "https://lutfi-script-client.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
     next();
 });
 
@@ -23,7 +27,6 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 
-app.options('*', cors());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -33,7 +36,7 @@ app.use('/auth/:id', UserRouter);
 app.use('/modules', ModulesRouter);
 app.use('/modules/:id', ModulesRouter);
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("Connected to MongoDB");
         app.listen(process.env.PORT, () => {
