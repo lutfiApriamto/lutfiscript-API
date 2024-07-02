@@ -230,7 +230,7 @@ router.post('/forgotpassword', async (req, res) => {
             from: 'lutfiapriamto12@gmail.com',
             to: email,
             subject: 'Reset Password',
-            text: `http://localhost:5173/resetpassword/${token}`
+            text: `https://lutfi-script-client.vercel.app/resetpassword/${token}`
         };
 
         transporter.sendMail(mailOptions, function(error, info) {
