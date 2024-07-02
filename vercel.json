@@ -9,6 +9,11 @@
     {
       "src": "/(.*)",
       "dest": "/index.js"
-    }
+    },
+    {
+      "rewrites": [
+        { "source": "/(.*)", "destination": "/" }
+      ]
+    }    
   ]
 }
