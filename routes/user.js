@@ -81,13 +81,13 @@ router.post('/suggestion', async (req, res) => {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'lutfiapriamto12@gmail.com',
-                pass: 'nozm rjvz ryrh dixd'
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
             }
         });
 
         var mailOptions = {
-            from: 'lutfiapriamto12@gmail.com',
+            from: process.env.EMAIL_USER,
             to: email,
             subject: 'Hallo sobat LutfiScript',
             text: `Terimakasih telah memberikan saran. saran dari anda sangat berarti bagi kami.`
@@ -110,8 +110,8 @@ router.post('/suggestion', async (req, res) => {
 });
 
 router.post('/submitresult', async (req, res) => {
-    const { percoobaan , email, score, quizname} = req.body;
-    const user = await User.findOne({email});
+    const { percoobaan , username, score, quizname} = req.body;
+    const user = await User.findOne({username});
 
     if(!user) {
         return res.status(404).json({message : "usertidak ditemukan"})
@@ -126,14 +126,14 @@ router.post('/submitresult', async (req, res) => {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'lutfiapriamto12@gmail.com',
-                pass: 'nozm rjvz ryrh dixd'
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
             }
         });
 
         var mailOptions = {
-            from: 'lutfiapriamto12@gmail.com',
-            to: email,
+            from: process.env.EMAIL_USER,
+            to: user.email,
             subject: 'Hello Sobat Lutfiscripy',
             text: `Selamat anda telah mengerjakan ${quizname} dengan nilai score : ${score}. teruslah tingkatkan semangat belajar anda. terimakasih🤗`
         };
@@ -221,13 +221,13 @@ router.post('/forgotpassword', async (req, res) => {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'lutfiapriamto12@gmail.com',
-                pass: 'nozm rjvz ryrh dixd'
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
             }
         });
 
         var mailOptions = {
-            from: 'lutfiapriamto12@gmail.com',
+            from: process.env.EMAIL_USER,
             to: email,
             subject: 'Reset Password',
             text: `https://lutfi-script-client.vercel.app/resetpassword/${token}`
